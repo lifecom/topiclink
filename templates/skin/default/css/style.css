@@ -1,0 +1,70 @@
+/* Reset
+-------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td { padding: 0; margin: 0; }
+ul, ol { list-style: none; }
+img { border: none; }
+
+
+
+/* Body
+-------------------------------------------------------------------*/
+html, body { height: 100%; }
+body { font: 12px/18px Tahoma, Arial, Helvetica, sans-serif; color: #333; background: #f7f8f9; }
+
+.voting a { outline: none; }
+.voting { background: url(../images/bg.gif) repeat-x scroll 0 -576px; padding: 10px 10px; overflow: hidden; }
+.voting li { float: left; color: #777; margin-left: 5px; margin-right: 5px; }
+.voting li a { text-decoration: none; outline: none; }
+.voting li a:hover { background: #777; color: #fff; }
+.voting li.author { margin-right: 10px; color: #999; text-decoration: none; background: url(../images/icons.gif) no-repeat scroll 0 -105px; padding-left: 13px; }
+.voting li.author a { font-weight: bold; }
+.voting li.date { color: #999; font-size: 11px; margin-right: 20px; }
+.voting li.link { color: #999; font-size: 11px; margin-right: 20px; background:url(../images/link_url.gif) center left no-repeat;padding-left: 15px;}
+
+.voting li.plus { margin-right: 5px; }
+.voting li.total { margin-right: 5px; color: #aaa; }
+.voting li.total a:hover, .voting li.total a { background: #fff; color: #aaa; }
+.voting li.minus { margin-right: 20px; }
+.voting li.plus a { background: url(../images/icons.gif) no-repeat scroll 0 -90px; float: left; display: block; height: 11px; margin-top: 3px; text-decoration: none; width: 9px; }
+.voting li.plus a:hover { background: url(../images/icons.gif) no-repeat scroll -40px -90px; }
+.voting li.minus a { background: url(../images/icons.gif) no-repeat scroll -10px -90px; float: left; display: block; height: 11px; margin-top: 4px; text-decoration: none; width: 9px; }
+.voting li.minus a:hover { background: url(../images/icons.gif) no-repeat scroll -70px -90px; }
+.voting li.close { background: url('../images/delete.gif') no-repeat scroll 0 3px; padding: 0 15px; }
+
+.voting.voted li.plus a { cursor:default; background: url(../images/icons.gif) no-repeat scroll 0 -90px; }
+.voting.voted li.minus a { cursor:default; background: url(../images/icons.gif) no-repeat scroll -10px -90px; }
+
+.voting.plus li.plus a { background: url(../images/icons.gif) no-repeat scroll -40px -90px; }
+.voting.minus li.minus a { background: url(../images/icons.gif) no-repeat scroll -70px -90px; }
+.voting.guest li.plus a { background: url(../images/icons.gif) no-repeat scroll 0 -90px; cursor: default; }
+.voting.guest li.minus a { background: url(../images/icons.gif) no-repeat scroll -10px -90px; cursor: default; }
+.voting.positive .total { color: #390 !important; }
+.voting.negative .total { color: #f00 !important; }
+
+.voting.minus li.plus a:hover { background: url(../images/icons.gif) no-repeat scroll 0 -90px; }
+.voting.plus li.minus a:hover { background: url(../images/icons.gif) no-repeat scroll -10px -90px; }
+
+.voting li.comments-total a { font-size: 11px; }
+.voting li.comments-total a span { padding: 0 2px; }
+.voting li.comments-total a span.green { color: #390; }
+.voting li.comments-total a span.red { color: #f00; }
+.voting li.comments-total a:hover { background: #390; }
+.voting li.comments-total a:hover span { color: #fff; }
+.voting li.comments-total a:hover span.red { background: #f00; }
+
+.voting li label { font-size: 11px; margin: 0 5px; }
+.voting li input, .voting li button { font-size: 11px; margin: 0px; padding: 0px 3px; width: 80px; }
+
+.site-name { padding: 0px; }
+.site-name a { color: #c7c7c7; text-decoration: none; }
+.site-name a span { color: #dedede; }
+.site-name a:hover { color: #333; }
+.site-name a:hover span { color: #777; }
