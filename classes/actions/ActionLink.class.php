@@ -60,7 +60,7 @@ class PLuginTopiclink_ActionLink extends ActionPlugin {
 		if ($oTopic->getType()!='link') {
 			return parent::EventNotFound();
 		}
-		$this->Viewer_AddHtmlTitle($this->Lang_Get('topiclink_viewing') . ' ' . $oTopic->getLinkUrl());
+		$this->Viewer_AddHtmlTitle($this->Lang_Get('plugin.topiclink.viewing') . ' ' . $oTopic->getLinkUrl());
 		/**
 		 * увелививаем число переходов по ссылке
 		 */

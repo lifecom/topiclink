@@ -4,7 +4,7 @@
  * by Stanislav Nevolin, stanislav@nevolin.info
  */
 return array(
-	'topiclink_viewing' => 'Viewing',
-	'topiclink_close' => 'Close',
+	'viewing' => 'Viewing',
+	'close' => 'Close',
 );
 ?>

@@ -7,9 +7,9 @@
 		<lang name="default">Stanislav Nevolin</lang>
 	</author>
 	<homepage>http://topiclink.lsplugin.nevolin.info/</homepage>
-	<version>0.1</version>
+	<version>0.2</version>
 	<requires>
-		<livestreet>0.4.2</livestreet>
+		<livestreet>1.0</livestreet>
 		<plugins>
 		</plugins>
 	</requires>
