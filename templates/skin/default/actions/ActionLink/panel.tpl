@@ -107,7 +107,17 @@
 				{/if}
 			</li>
 {if !$oUserCurrent}
-			<form action="{router page='link'}login/" method="post">
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$('#login-form').bind('submit',function(){
+			ls.user.login('login-form');
+			return false;
+		});
+		$('#login-form-submit').attr('disabled',false);
+	});
+</script>
+			
+			<form action="{router page='login'}" id="login-form" method="post">
 				<li>
 					<label for="login">{$aLang.registration_login}:</label>
 					<input type="text" name="login" id="login" />

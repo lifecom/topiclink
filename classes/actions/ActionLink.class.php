@@ -8,39 +8,11 @@
  * Обработка УРЛа вида /link/ - управление своими топиками(тип: ссылка)
  *
  */
-class PLuginTopiclink_ActionLink extends ActionPlugin {
-	/**
-	 * Текущий юзер
-	 *
-	 * @var unknown_type
-	 */
-	protected $oUserCurrent=null;
-
-	/**
-	 * Инициализация
-	 *
-	 * @return unknown
-	 */
-	public function Init() {
-		$this->oUserCurrent=$this->User_GetUserCurrent();
-		$this->SetDefaultEvent('add');
-		$this->Viewer_AddHtmlTitle($this->Lang_Get('topic_link_title'));
-	}
-	/**
-	 * Регистрируем евенты
-	 *
-	 */
+class PLuginTopiclink_ActionLink extends PLuginTopiclink_Inherit_ActionLink {
 	protected function RegisterEvent() {
-		$this->AddEvent('add','EventAdd');
-		$this->AddEvent('edit','EventEdit');
-		$this->AddEvent('go','EventGo');
+		parent::RegisterEvent();
 		$this->AddEvent('panel','EventPanel');
-		$this->AddEvent('login','EventLogin');
 	}
-	/**********************************************************************************
-	 ************************ РЕАЛИЗАЦИЯ ЭКШЕНА ***************************************
-	 **********************************************************************************
-	 */
 	/**
 	 * Переход по ссылке
 	 *
@@ -113,22 +85,6 @@ class PLuginTopiclink_ActionLink extends ActionPlugin {
 			$this->SetTemplateAction('panel.tpl');
 		}
 		$this->Viewer_AddHtmlTitle($this->Lang_Get('login'));
-	}
-	/**
-	 * Редактирование ссылки
-	 *
-	 * @return unknown
-	 */
-	protected function EventEdit() {
-		return Router::Action('lslink', 'edit');
-	}
-	/**
-	 * Добавление ссылки
-	 *
-	 * @return unknown
-	 */
-	protected function EventAdd() {
-		return Router::Action('lslink', 'add');
 	}
 }
 ?>
