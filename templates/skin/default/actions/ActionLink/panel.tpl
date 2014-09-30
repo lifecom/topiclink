@@ -109,15 +109,15 @@
 {if !$oUserCurrent}
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-		$('#login-form').bind('submit',function(){
-			ls.user.login('login-form');
+		$('#topiclink-panel-login-form').bind('submit',function(){
+			ls.user.login('topiclink-panel-login-form');
 			return false;
 		});
-		$('#login-form-submit').attr('disabled',false);
+		$('#topiclink-panel-login-form-submit').attr('disabled',false);
 	});
 </script>
 			
-			<form action="{router page='login'}" id="login-form" method="post">
+			<form action="{router page='login'}" id="topiclink-panel-login-form" method="post">
 				<li>
 					<label for="login">{$aLang.registration_login}:</label>
 					<input type="text" name="login" id="login" />
@@ -127,10 +127,11 @@
 					<input type="password" name="password" class="input-text" id="password" tabindex="2" />
 				</li>
 				<li>
-					<button type="submit">{$aLang.user_login_submit}</button>
-					<input type="hidden" name="submit_login">
+					<button type="submit" name="submit_login" id="topiclink-panel-login-form-submit" disabled="disabled">{$aLang.user_login_submit}</button>
+					<input type="hidden" name="return-path" value="{$PATH_WEB_CURRENT|escape:'html'}">
 				</li>
 			</form>
+			{$PATH_WEB_CURRENT|escape:'html'}
 {/if}
 			<li class="close"><a href="{$oTopic->getLinkUrl()}" target="_parent">{$aLang.plugin.topiclink.close}</a></li>
 			{hook run='topiclink_show_info' topic=$oTopic}
