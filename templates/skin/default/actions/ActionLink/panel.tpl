@@ -86,13 +86,23 @@
 	{hook run='html_head_end'}
 </head>
 	<body>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		ls.vote.options.classes.plus = 'plus';
+		ls.vote.options.classes.minus = 'minus';
+		ls.vote.options.classes.positive = 'positive';
+		ls.vote.options.classes.negative = 'negative';
+		ls.vote.options.prefix_area = 'topiclink_panel_vote_area_';
+		ls.vote.options.prefix_total = 'topiclink_panel_vote_total_';
+	});
+</script>
 {assign var="oBlog" value=$oTopic->getBlog()} 
 {assign var="oUser" value=$oTopic->getUser()}
 {assign var="oVote" value=$oTopic->getVote()} 
-		<ul class="voting {if $oVote || ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId())|| strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}{if $oTopic->getRating()>0}positive{elseif $oTopic->getRating()<0}negative{/if}{/if} {if !$oUserCurrent || $oTopic->getUserId()==$oUserCurrent->getId() || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}guest{/if} {if $oVote} voted {if $oVote->getDirection()>0}plus{elseif $oVote->getDirection()<0}minus{/if}{/if}">
+		<ul id="topiclink_panel_vote_area_topic_{$oTopic->getId()}" class="voting {if $oVote || ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId())|| strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}{if $oTopic->getRating()>0}positive{elseif $oTopic->getRating()<0}negative{/if}{/if} {if !$oUserCurrent || $oTopic->getUserId()==$oUserCurrent->getId() || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}guest{/if} {if $oVote} voted {if $oVote->getDirection()>0}plus{elseif $oVote->getDirection()<0}minus{/if}{/if}">
 			<li class="site-name"><a href="{cfg name='path.root.web'}" title="{cfg name='view.name'}" target="_parent">{$sSiteName}</a></li>
 			<li class="plus"><a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,1,'topic');"></a></li>
-			<li class="total" title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}">{if $oVote || ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId()) || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')} {if $oTopic->getRating()>0}+{/if}{$oTopic->getRating()} {else} <a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">&mdash;</a> {/if}</li>
+			<li class="total" id="topiclink_panel_vote_total_topic_{$oTopic->getId()}" title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}">{if $oVote || ($oUserCurrent && $oTopic->getUserId()==$oUserCurrent->getId()) || strtotime($oTopic->getDateAdd())<$smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')} {if $oTopic->getRating()>0}+{/if}{$oTopic->getRating()} {else} <a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">&mdash;</a> {/if}</li>
 			<li class="minus"><a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,-1,'topic');"></a></li>
 			<li class="date">{date_format date=$oTopic->getDateAdd()}</li>
 			{if $oTopic->getType()=='link'}
