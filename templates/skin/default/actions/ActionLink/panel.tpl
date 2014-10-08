@@ -141,7 +141,6 @@
 					<input type="hidden" name="return-path" value="{$PATH_WEB_CURRENT|escape:'html'}">
 				</li>
 			</form>
-			{$PATH_WEB_CURRENT|escape:'html'}
 {/if}
 			<li class="close"><a href="{$oTopic->getLinkUrl()}" target="_parent">{$aLang.plugin.topiclink.close}</a></li>
 			{hook run='topiclink_show_info' topic=$oTopic}
